@@ -3,6 +3,15 @@
 # An SSH key must have been setup on the system as well as on github
 #
 
+
+# CLEAN UP
+
+rm -fr /home/modemdev
+
+# GIT ACCESS TEST
+
+ssh -T git@github.com
+
 # HdrModem
 
 mkdir /home/modemdev
@@ -41,6 +50,10 @@ git clone git@github.com:Radioguy00/Og1Downlink.git og1_downlink
 
 cd /home/modemdev
 git clone git@github.com:Radioguy00/UhdTests.git uhd_tests
+
+# DIRECTORY ACCESS
+
+chown root /home/modemdev
 
 
 # ROUTINE COMPLETION
