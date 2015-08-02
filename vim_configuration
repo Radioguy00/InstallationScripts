@@ -1,0 +1,9 @@
+set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+filetype plugin indent on
+
+syntax on
+colorscheme desert
+set number
+set laststatus=2
+au VimLeave * :!clear
+
