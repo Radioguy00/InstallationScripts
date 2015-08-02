@@ -66,5 +66,16 @@ else
 	echo "Call for $alias_script already exist in .bashrc"
 fi
 
+# VIM EDITOR CONFIGURATION
+
+# Save the original vim configuration if it has not already been saved
+if [ -f $HOME/.vimrc -a ! -f $HOME/.vimrc_saved ]
+then
+	cp $HOME/.vimrc $HOME/.vimrc_saved
+	echo "Original .vimrc has been saved in .vimrc_original"
+fi
+cp $HOME/installation/vim_configuration $HOME/.vimrc
+
+
 
 
