@@ -16,8 +16,10 @@ ssh -T git@github.com
 
 mkdir /home/modemdev
 cd /home/modemdev
-
 git clone git@github.com:Radioguy00/HdrModem.git hdr_modem
+mkdir /home/modemdev/hdr_modem/obj
+mkdir /home/modemdev/hdr_modem/output_test_files
+mkdir /home/modemdev/hdr_modem/input_test_files
 
 # SrcLibraries
 
@@ -45,6 +47,9 @@ git clone git@github.com:Radioguy00/E100GccTests.git gcc_tests
 
 cd /home/modemdev
 git clone git@github.com:Radioguy00/Og1Downlink.git og1_downlink
+mkdir /home/modemdev/og1_downlink/obj
+mkdir /home/modemdev/og1_downlink/output_test_files
+mkdir /home/modemdev/og1_downlink/input_test_files
 
 # UHD TESTS
 
