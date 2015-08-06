@@ -38,6 +38,7 @@ environment_script=${1}_environment.sh
 if [ ! -f $HOME/.bash_profile ]
 then
 	touch $HOME/.bash_profile
+	chmod u+x $HOME/.bash_profile
 fi
 
 if  ! grep "$environment_script" $HOME/.bash_profile > /dev/null 
@@ -63,6 +64,7 @@ fi
 if [ ! -f $HOME/.bashrc ]
 then
 	touch $HOME/.bashrc
+	chmod u+x $HOME/.bashrc
 fi
 
 if  ! grep "$alias_script" $HOME/.bashrc > /dev/null 
