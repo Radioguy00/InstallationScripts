@@ -23,15 +23,15 @@ fi
 
 # SOURCES FILES INSTALLATION
 
-
+$HOME/installation/source_files.sh
 
 # ENVIRONNMENT SETTING
 
 alias_script=${1}_aliases.sh
 environment_script=${1}_environment.sh
 
-echo $alias_script
-echo $environment_script
+#echo $alias_script
+#echo $environment_script
 
 
 # Is the environment definition file already called by .bash_profile?

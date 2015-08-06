@@ -3,14 +3,14 @@
 # 1) An SSH key must have been setup on the system as well as on github
 #
 
-INSTALL_HOME=$INSTALL_HOME  # Directory where all the source files are installed.
+INSTALL_HOME=/home/modemdev  # Directory where all the source files are installed.
 
 # CLEAN UP
 read -p "Do you really want to remove all source files?(y/n)" 
 
 if [ $REPLY != "y" ]
 then
-	echo "Operation aborted by user"
+	echo "Source file copying operation aborted by user"
 	exit 0
 fi
 	
@@ -25,7 +25,7 @@ ssh -T git@github.com
 mkdir $INSTALL_HOME
 cd $INSTALL_HOME
 
-git clone git@github.com:Radioguy00/HdrModem.git hdr_modem
+git clone --origin gh git@github.com:Radioguy00/HdrModem.git hdr_modem
 mkdir $INSTALL_HOME/hdr_modem/obj
 mkdir $INSTALL_HOME/hdr_modem/output_test_files
 mkdir $INSTALL_HOME/hdr_modem/input_test_files
@@ -35,27 +35,27 @@ mkdir $INSTALL_HOME/hdr_modem/input_test_files
 cd $INSTALL_HOME
 mkdir src_libraries
 cd src_libraries
-git clone git@github.com:Radioguy00/SrcDsp.git dsp
-git clone git@github.com:Radioguy00/SrcSatelliteCode.git satellite_code
-git clone git@github.com:Radioguy00/SrcUtilities.git utilities
-git clone git@github.com:Radioguy00/SrcUhdUtilities.git uhdutilities
+git clone --origin gh git@github.com:Radioguy00/SrcDsp.git dsp
+git clone --origin gh git@github.com:Radioguy00/SrcSatelliteCode.git satellite_code
+git clone --origin gh git@github.com:Radioguy00/SrcUtilities.git utilities
+git clone --origin gh git@github.com:Radioguy00/SrcUhdUtilities.git uhdutilities
 
 # SrcLibrariesTest
 
 mkdir $INSTALL_HOME/src_libraries_test
 cd $INSTALL_HOME/src_libraries_test
 
-git clone git@github.com:Radioguy00/SrcDspTest.git dsp_test
+git clone --origin gh git@github.com:Radioguy00/SrcDspTest.git dsp_test
 
 # GCC TESTS
 
 cd $INSTALL_HOME
-git clone git@github.com:Radioguy00/GccTests.git gcc_tests
+git clone --origin gh git@github.com:Radioguy00/GccTests.git gcc_tests
 
 # OG1 DOWNLINK
 
 cd $INSTALL_HOME
-git clone git@github.com:Radioguy00/Og1Downlink.git og1_downlink
+git clone --origin gh git@github.com:Radioguy00/Og1Downlink.git og1_downlink
 mkdir $INSTALL_HOME/og1_downlink/obj
 mkdir $INSTALL_HOME/og1_downlink/output_test_files
 mkdir $INSTALL_HOME/og1_downlink/input_test_files
@@ -63,7 +63,17 @@ mkdir $INSTALL_HOME/og1_downlink/input_test_files
 # UHD TESTS
 
 cd $INSTALL_HOME
-git clone git@github.com:Radioguy00/UhdTests.git uhd_tests
+git clone --origin gh git@github.com:Radioguy00/UhdTests.git uhd_tests
+
+
+# LIBSERIAL LIBRARY
+
+git clone --origin gh git@github.com:Radioguy00/libserial.git $INSTALL_HOME/libserial
+cd $INSTALL_HOME/libserial
+make -f Makefile.dist
+./configure
+make
+make install
 
 # DIRECTORY ACCESS
 
