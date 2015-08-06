@@ -35,6 +35,10 @@ echo $environment_script
 
 
 # Is the environment definition file already called by .bash_profile?
+if [ ! -f $HOME/.bash_profile ]
+then
+	touch $HOME/.bash_profile
+fi
 
 if  ! grep "$environment_script" $HOME/.bash_profile > /dev/null 
 then
@@ -56,6 +60,11 @@ fi
 
 
 # Is the alias definition file already called by .bashrc?
+if [ ! -f $HOME/.bashrc ]
+then
+	touch $HOME/.bashrc
+fi
+
 if  ! grep "$alias_script" $HOME/.bashrc > /dev/null 
 then
 	echo "source $HOME/installation/$alias_script" >> $HOME/.bashrc
