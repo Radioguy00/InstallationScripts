@@ -51,6 +51,7 @@ git clone --origin gh git@github.com:Radioguy00/SrcDspTest.git dsp_test
 
 cd $INSTALL_HOME
 git clone --origin gh git@github.com:Radioguy00/GccTests.git gcc_tests
+mkdir $INSTALL_HOME/gcc_tests/obj
 
 # OG1 DOWNLINK
 
