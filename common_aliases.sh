@@ -13,3 +13,5 @@ alias uhd="cd /home/modemdev/src_libraries/uhdutilities"
 alias clear_out_files="rm -fr /home/modemdev/hdr_modem/output_test_files/*"
 alias dosim="~/og1_downlink_script"
 
+alias ls="ls -F --color=always"
+
