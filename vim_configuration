@@ -6,4 +6,5 @@ colorscheme desert
 set number
 set laststatus=2
 au VimLeave * :!clear
+set foldmethod=syntax
 
