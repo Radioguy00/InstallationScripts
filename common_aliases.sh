@@ -3,15 +3,17 @@
 # It sets the aliases used by the shell
 
 
-alias og1="/home/modemdev/og1_downlink"
-alias hdr="cd /home/modemdev/hdr_modem"
-alias dsp="cd /home/modemdev/src_libraries/dsp"
-alias utilities="cd /home/modemdev/src_libraries/utilities"
-alias uhd="cd /home/modemdev/src_libraries/uhdutilities"
+alias og1="cd ~/applications/og1_dnl"
+alias hdr="cd ~/applications/hdr_modem"
+alias aistx="cd ~/applications/ais_tx"
+alias dsp="cd ./src_dsp"
+alias utilities="cd ./src_utilities"
+alias uhd="cd ./src_uhd_utilities"
 
 
-alias clear_out_files="rm -fr /home/modemdev/hdr_modem/output_test_files/*"
+alias clear_out_files="rm -fr ./output_test_files/*"
 alias dosim="~/og1_downlink_script"
 
 alias ls="ls -F --color=always"
+alias ll="ls -F -la --color=always"
 

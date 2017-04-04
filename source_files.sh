@@ -1,9 +1,13 @@
-# This script install all the sources files required for the hdr modem project
+# This script install all the sources files required for the following projects:
+#	hdr modem project
+#	ais_tx
+#	og1_downlink
+#
 # The requirements are:
 # 1) An SSH key must have been setup on the system as well as on github
 #
 
-INSTALL_HOME=/home/modemdev  # Directory where all the source files are installed.
+INSTALL_HOME=~/applications  # Directory where all the source files are installed.
 
 # CLEAN UP
 read -p "Do you really want to remove all source files?(y/n)" 
@@ -20,65 +24,38 @@ rm -fr $INSTALL_HOME
 
 ssh -T git@github.com
 
-# HdrModem
 
 mkdir $INSTALL_HOME
 cd $INSTALL_HOME
 
-git clone --origin gh git@github.com:Radioguy00/HdrModem.git hdr_modem
-mkdir $INSTALL_HOME/hdr_modem/obj
-mkdir $INSTALL_HOME/hdr_modem/output_test_files
-mkdir $INSTALL_HOME/hdr_modem/input_test_files
-
-# SrcLibraries
+# HdrModem
 
 cd $INSTALL_HOME
-mkdir src_libraries
-cd src_libraries
-git clone --origin gh git@github.com:Radioguy00/SrcDsp.git dsp
-git clone --origin gh git@github.com:Radioguy00/SrcSatelliteCode.git satellite_code
-git clone --origin gh git@github.com:Radioguy00/SrcUtilities.git utilities
-git clone --origin gh git@github.com:Radioguy00/SrcUhdUtilities.git uhdutilities
+INSTALL_SUBDIR=hdr_modem
+git clone --origin gh git@github.com:Radioguy00/HdrModem.git $INSTALL_SUBDIR
+mkdir $INSTALL_HOME/$INSTALL_SUBDIR/obj
+mkdir $INSTALL_HOME/$INSTALL_SUBDIR/output_test_files
+mkdir $INSTALL_HOME/$INSTALL_SUBDIR/input_test_files
 
-# SrcLibrariesTest
-
-mkdir $INSTALL_HOME/src_libraries_test
-cd $INSTALL_HOME/src_libraries_test
-
-git clone --origin gh git@github.com:Radioguy00/SrcDspTest.git dsp_test
-
-# GCC TESTS
+# AisTx
 
 cd $INSTALL_HOME
-git clone --origin gh git@github.com:Radioguy00/GccTests.git gcc_tests
-mkdir $INSTALL_HOME/gcc_tests/obj
+INSTALL_SUBDIR=ais_tx
+git clone --origin gh git@github.com:Radioguy00/AisTx.git $INSTALL_SUBDIR
+mkdir $INSTALL_HOME/$INSTALL_SUBDIR/obj
+mkdir $INSTALL_HOME/$INSTALL_SUBDIR/output_test_files
+mkdir $INSTALL_HOME/$INSTALL_SUBDIR/input_test_files
 
 # OG1 DOWNLINK
 
 cd $INSTALL_HOME
-git clone --origin gh git@github.com:Radioguy00/Og1Downlink.git og1_downlink
-mkdir $INSTALL_HOME/og1_downlink/obj
-mkdir $INSTALL_HOME/og1_downlink/output_test_files
-mkdir $INSTALL_HOME/og1_downlink/input_test_files
-
-# UHD TESTS
-
-cd $INSTALL_HOME
-git clone --origin gh git@github.com:Radioguy00/UhdTests.git uhd_tests
+INSTALL_SUBDIR=og1_dnl
+git clone --origin gh git@github.com:Radioguy00/Og1Downlink.git $INSTALL_SUBDIR
+mkdir $INSTALL_HOME/$INSTALL_SUBDIR/obj
+mkdir $INSTALL_HOME/$INSTALL_SUBDIR/output_test_files
+mkdir $INSTALL_HOME/$INSTALL_SUBDIR/input_test_files
 
 
-# LIBSERIAL LIBRARY
-
-git clone --origin gh git@github.com:Radioguy00/libserial.git $INSTALL_HOME/libserial
-cd $INSTALL_HOME/libserial
-make -f Makefile.dist
-./configure
-make
-make install
-
-# DIRECTORY ACCESS
-
-chown root $INSTALL_HOME
 
 # SCRIPTS TO BE PLACED IN INSTALL_HOME
 cp $HOME/installation/git_status.sh $INSTALL_HOME
@@ -86,5 +63,5 @@ chmod u+x $INSTALL_HOME/git_status.sh
 
 # ROUTINE COMPLETION
 
-echo "*******   Installation script has completed **********"
+echo "*******   Source Files Installation script has completed **********"
 
