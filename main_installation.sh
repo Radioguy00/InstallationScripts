@@ -87,6 +87,10 @@ then
 fi
 cp $HOME/installation/vim_configuration $HOME/.vimrc
 
+# Copy some scripts into the home directory
+cp $HOME/installation/og1_dnl_start.sh $HOME/og1_dnl_start.sh
+
+
 
 
 

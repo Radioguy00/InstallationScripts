@@ -12,8 +12,11 @@ alias uhd="cd ./src_uhd_utilities"
 
 
 alias clear_out_files="rm -fr ./output_test_files/*"
-alias dosim="~/og1_downlink_script"
+alias dosim="~/og1_dnl_start.sh"
 
 alias ls="ls -F --color=always"
 alias ll="ls -F -la --color=always"
+
+alias sd="shutdown -h now"
+
 
